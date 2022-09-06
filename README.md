@@ -47,8 +47,6 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 
 ![Avatar ID](docs/images/Edit_OSC_JSON.png)
 
-<br>
-
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
 1. [Download Python](https://www.python.org/downloads/)
@@ -64,13 +62,11 @@ This script is not limited to Headpats or just one parameter at a time! You can 
 Each Parameter will need its own `VRC Contact Receiver` and remember to name each parameter starting with `Track_`. So for steppies it is `Track_Steppies`.
 
 > ### Example Setup of Steppies Counter:
-
 > ![Avatar ID](docs/images/Track_Steppies.png) <br>
 > In this example I have named my parameter `Track_Steppies` and have set the collision to react to `Foot`, `FootR`, and `FootL`
 
 ## <a name="Troubleshooting"></a><b>Troubleshooting</b>
-
-Program not working as expected? This may be a helpful checklist.
+> Program not working as expected? This may be a helpful checklist.
 
 - Does your named parameter(s) start with `Track_`
 - Did you set the parameter(s) in the [Avatars OCS file](#-Parameters-Setup-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`
