@@ -1,6 +1,6 @@
 # VRChat Headpat+ Counter
 
-### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters)
+### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [Troubleshooting](#Troubleshooting)
 
 ## <a name="What-Is-This"></a><b>What is this? </b><br>
 
@@ -31,7 +31,7 @@
 
 ## <a name="OSC-Parameters-Setup"></a><b>OSC Parameters Setup</b>
 
-Your avatar will need the put your new parameters into your VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded. The files are named using that avatars ID. If this is not your first time building the avatar you will either need to do one of the two options:
+Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded. The files are named using that avatars ID. If this is not your first time building the avatar you will either need to do one of the two options:
 
 <b>Option 1 -></b> Manually add the parameters in the avatars OSC file.<br>
 <b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
@@ -61,6 +61,18 @@ This script is not limited to Headpats or just one parameter at a time! You can 
 Each Parameter will need its own `VRC Contact Receiver` and remember to name each parameter starting with `Track_`. So for steppies it is `Track_Steppies`.
 
 > ### Example Setup of Steppies Counter:
->
+
 > ![Avatar ID](docs/images/Track_Steppies.png) > <br>
 > In this example I have named my parameter `Track_Steppies` and have set the collision to react to `Foot`, `FootR`, and `FootL`
+
+## <a name="Troubleshooting"></a><b>Troubleshooting</b>
+
+Program not working as expected? Here may be a helpful checklist.
+
+- Does your named parameter(s) start with `Track_`
+- Did you set the parameter(s) in the [Avatars OCS file](#-Parameters-Setup-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`
+- In Game: Did you turn on OSC (Inside the radial menu)?
+  ![Avatar ID](docs/images/Radial_One.png)
+  ![Avatar ID](docs/images/Radial_Two.png)
+- In Game: Do you have interactions turned on?
+  ![Avatar ID](docs/images/Interactions.png)
