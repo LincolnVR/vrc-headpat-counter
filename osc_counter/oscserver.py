@@ -25,9 +25,6 @@ class OSCServer():
         self.server.shutdown()
         self.server_thread.join()
 
-    # def _display_messages(self, address: str, *args) -> None:
-    #     pass
-
     # Entry point from OSC Unity receiver for any contact point
     # Remember from the README that args is derived from your avatars OSC JSON file
     # Per the README these address can only be boolean
