@@ -3,6 +3,3 @@ __pycache__/
 
 .env
 tracker.json
-cookies.json
-
-test.py
