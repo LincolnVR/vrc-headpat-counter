@@ -8,22 +8,18 @@
 
 <br>
 
-## <b>How To Setup</b>
+## <a name="How-To-Setup"></a><b>How To Setup</b>
 
 > ### <b>[Unity Setup](#Unity-Setup) -> [OCS Parameters Setup](#OSC-Parameters-Setup) -> [Launching This Program](#Launching-Program)</b>
 
-<br>
-
 ## <a name="Unity-Setup"></a><b>Unit Setup</b>
 
----
+1. Add a `VRC Contact Receiver` component to your avatar.
+2. Checkmark `Allow Others` inside the `VRC Contact Receiver`
+3. Set the Parameter you would like to track in the `Parameter` field of `VRC Contact Receiver`. This must be named with a `Track_` before the parameter name in order to work with this script (see example below).
+4. Add which collisions you want to trigger the increment of the parameter inside the `VRC Contact Receiver`.
 
-    1. Add a `VRC Contact Receiver` component to your avatar.
-    2. Checkmark `Allow Others` inside the `VRC Contact Receiver`
-    3. Set the Parameter you would like to track in the `Parameter` field of `VRC Contact Receiver`. This must be named with a `Track_` before the parameter name in order to work with this script (see example below).
-    4. Add which collisions you want to trigger the increment of the parameter inside the `VRC Contact Receiver`.
-
-### Example of adding Headpats as a Parameter:
+#### Example of adding Headpats as a Parameter:
 
 ![Example Image](docs/images/Unity_Example.png)
 
@@ -34,22 +30,17 @@
 
 ## <a name="OSC-Parameters-Setup"></a><b>OSC Parameters Setup</b>
 
----
+Your avatar will need the put your new parameters into your VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded. The files are named using that avatars ID. If this is not your first time building the avatar you will either need to do one of the two options:
 
-Your avatar will need the put your new parameters into your VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded. The files are named using that avatars ID. If this is not your first time building the avatar you will either need to:
-
-> ## Do <b>ONE</b> of the two:
-
-### <b>Option 1 -></b> Manually add the parameters in the avatars OSC file.
-
-### <b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
+<b>Option 1 -></b> Manually add the parameters in the avatars OSC file.<br>
+<b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
 
 <br>
 
 > Note: you can find your avatars ID inside the `Pipeline Manager(Script)` component in Unity.
 > ![Avatar ID](docs/images/VRC_Avatar_Descriptor.png)
 
-### Example of maunally adding the Headpats parameter:
+#### Example of maunally adding the Headpats parameter:
 
 ![Avatar ID](docs/images/Edit_OSC_JSON.png)
 
@@ -57,18 +48,12 @@ Your avatar will need the put your new parameters into your VRC OSC file. The fi
 
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
----
-
-- ## [Download Python](https://www.python.org/downloads/)
-- ## Download this Github Repo as Zip
-- ## Extract Zip
-- ## Run `launch.bat`
-
-<br>
+1. [Download Python](https://www.python.org/downloads/)
+2. Download this Github Repo as Zip
+3. Extract Zip
+4. Run `launch.bat`
 
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
-
----
 
 This script is not limited to Headpats or just one parameter at a time! You can have multiple trackers setup at once. In the ["See It In Action"](#See-It-In-Action) section I have both `Headpats`, and `Steppies` setup on my avatar. You can easily add many more. The only limitation would come from the character limit inside VRC's chatbox.
 
@@ -82,8 +67,6 @@ Each Parameter will need its own `VRC Contact Receiver` and remember to name eac
 <br>
 
 ## <a name="See-It-In-Action"></a><b>See It In Action</b>
-
----
 
 ![Headpats](docs/gifs/Headpats.gif)
 ![Steppies](docs/gifs/Steppies.gif)
