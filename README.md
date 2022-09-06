@@ -31,7 +31,9 @@
 
 ## <a name="OSC-Parameters-Setup"></a><b>OSC Parameters Setup</b>
 
-Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded. The files are named using that avatars ID. If this is not your first time building the avatar you will either need to do one of the two options:
+> <b> :warning: You can skip this step if you have never enabled OSC in game before as the Avatar folder will be empty and your OSC Avatar JSON files will be auto generated after you enable OSC in game. </b>
+
+Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded so long as OSC has been enabled in game. The files are named using that avatars ID. If you have enabled OSC in the past and have loaded into the avatar before putting in your custom tracker parameters you will then need to do one of the two options:
 
 <b>Option 1 -></b> Manually add the parameters in the avatars OSC file.<br>
 <b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
@@ -53,6 +55,7 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 2. Download this Github Repo as Zip
 3. Extract Zip
 4. Run `launch.bat`
+5. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled. 
 
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
 
@@ -62,12 +65,12 @@ Each Parameter will need its own `VRC Contact Receiver` and remember to name eac
 
 > ### Example Setup of Steppies Counter:
 
-> ![Avatar ID](docs/images/Track_Steppies.png) > <br>
+> ![Avatar ID](docs/images/Track_Steppies.png) <br>
 > In this example I have named my parameter `Track_Steppies` and have set the collision to react to `Foot`, `FootR`, and `FootL`
 
 ## <a name="Troubleshooting"></a><b>Troubleshooting</b>
 
-Program not working as expected? Here may be a helpful checklist.
+Program not working as expected? This may be a helpful checklist.
 
 - Does your named parameter(s) start with `Track_`
 - Did you set the parameter(s) in the [Avatars OCS file](#-Parameters-Setup-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`
