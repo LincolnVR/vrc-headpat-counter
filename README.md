@@ -17,7 +17,7 @@
 
 1. Add a `VRC Contact Receiver` component to your avatar.
 2. Checkmark `Allow Others` inside the `VRC Contact Receiver`
-3. Set the Parameter you would like to track in the `Parameter` field of `VRC Contact Receiver`. This must be named with a `Track_` before the parameter name in order to work with this script (see example below). The parameter must also be a boolean. 
+3. Set the Parameter you would like to track in the `Parameter` field of `VRC Contact Receiver`. This must be named with a `Track_` before the parameter name in order to work with this script (see example below).
 4. Add which collisions you want to trigger the increment of the parameter inside the `VRC Contact Receiver`.
 
 #### Example of adding Headpats as a Parameter:
@@ -25,7 +25,7 @@
 ![Example Image](docs/images/Unity_Example.png)
 
 > Note: that in the above example the collider has been attached to my head and the `Track_Headpats` parameter will only triger when a `Hand`, `HandL`, or `HandR` enter that collider.<br>
-> You can [Add any parameter](#Customize-Your-Parameters) that you want. It does not need to be headpats. See the example [Steppies setup](#Customize-Your-Parameters)
+> You can [Add any parameter](#Customize-Your-Parameters) you want. It does not need to be headpats. See the [steppies](#Customize-Your-Parameters) example to see a different parameter implementation.
 
 <br>
 
@@ -35,7 +35,7 @@
 
 Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded so long as OSC has been enabled in game. The files are named using that avatars ID. If you have enabled OSC in the past and have loaded into the avatar before putting in your custom tracker parameters you will then need to do one of the two options:
 
-<b>Option 1 -></b> Manually add the parameters in the avatars OSC file.<br>
+<b>Option 1 -></b> Manually add the parameters in the avatars OSC file. (Note: the types must be Bool's)<br>
 <b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
 
 <br>
@@ -43,7 +43,7 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 > Note: you can find your avatars ID inside the `Pipeline Manager(Script)` component in Unity.
 > ![Avatar ID](docs/images/VRC_Avatar_Descriptor.png)
 
-#### Example of maunally adding the Headpats parameter:
+#### Example of manually adding the Headpats parameter:
 
 ![Avatar ID](docs/images/Edit_OSC_JSON.png)
 
