@@ -1,13 +1,7 @@
-import os
-import json
-import requests
 from datetime import datetime
-from dateutil import parser
+import json
 
 class FileManager:
-
-    def __init__(self, server_timer):
-        self.timer = server_timer
 
     # Increases the current count of a given contact locally in the JSON file
     def add_contact(self, contact_name: str) -> None:

@@ -1,17 +1,15 @@
-import queue, threading, datetime, os
-from pythonosc import udp_client
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import BlockingOSCUDPServer
-from messenger import Messenger
+from pythonosc import udp_client
 from filemanager import FileManager
 from timechecker import TimeChecker
+from messenger import Messenger
+import threading, datetime
 
 class OSCServer():
     def __init__(self, filemanager, messenger):
-        # self.target_address = "/avatar/parameters/Track_Headpats" 
         self.dispatcher = Dispatcher()
         self.dispatcher.set_default_handler(self._def_osc_dispatch)
-        # self.dispatcher.map(self.target_address, self._display_messages)
 
         self.client =  udp_client.SimpleUDPClient("127.0.0.1", 9000)
 
