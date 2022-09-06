@@ -9,7 +9,7 @@ class Messenger:
 
         message =  ""
         for contact_name in tracker.keys():
-            n_ctx = self.format_number(tracker[contact_name]['last_count'])
+            n_ctx = self.format_number(tracker[contact_name]['current_count'])
             message += f"{contact_name.capitalize()}: {n_ctx}, "
 
         if len(tracker.keys()) >= 1:
