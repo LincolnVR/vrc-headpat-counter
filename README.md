@@ -1,12 +1,13 @@
 # VRChat Headpat+ Counter
 
-### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [See It In Action](#See-It-In-Action)</b><br><br>
+### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters)
 
-## <b>What is this? </b><br>
+## <a name="What-Is-This"></a><b>What is this? </b><br>
 
 ### <b><i>A dynamic counter for VRChat. This script uses parameters setup inside VRC Contact Receivers. It will track and temporarily display set properties into VRC's chatbox each time one of those properties is incremented.</b></i>
 
-<br>
+![Headpats](docs/gifs/Headpats.gif)
+![Steppies](docs/gifs/Steppies.gif)
 
 ## <a name="How-To-Setup"></a><b>How To Setup</b>
 
@@ -55,7 +56,7 @@ Your avatar will need the put your new parameters into your VRC OSC file. The fi
 
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
 
-This script is not limited to Headpats or just one parameter at a time! You can have multiple trackers setup at once. In the ["See It In Action"](#See-It-In-Action) section I have both `Headpats`, and `Steppies` setup on my avatar. You can easily add many more. The only limitation would come from the character limit inside VRC's chatbox.
+This script is not limited to Headpats or just one parameter at a time! You can have multiple trackers setup at once. Under ["What is this?"](#What-Is-This) I have both `Headpats`, and `Steppies` setup on my avatar. You can easily add many more. The only limitation would come from the character limit inside VRC's chatbox.
 
 Each Parameter will need its own `VRC Contact Receiver` and remember to name each parameter starting with `Track_`. So for steppies it is `Track_Steppies`.
 
@@ -63,10 +64,3 @@ Each Parameter will need its own `VRC Contact Receiver` and remember to name eac
 >
 > ![Avatar ID](docs/images/Track_Steppies.png) > <br>
 > In this example I have named my parameter `Track_Steppies` and have set the collision to react to `Foot`, `FootR`, and `FootL`
-
-<br>
-
-## <a name="See-It-In-Action"></a><b>See It In Action</b>
-
-![Headpats](docs/gifs/Headpats.gif)
-![Steppies](docs/gifs/Steppies.gif)
