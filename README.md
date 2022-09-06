@@ -69,7 +69,7 @@ Each Parameter will need its own `VRC Contact Receiver` and remember to name eac
 > Program not working as expected? This may be a helpful checklist.
 
 - Does your named parameter(s) start with `Track_`
-- Did you set the parameter(s) in the [Avatars OCS file](#-Parameters-Setup-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`
+- Do you see your custom parameter(s) in the [Avatars OCS file](#OSC-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`. Your avatar may or may not have a json file in this `Avatars` folder Reference [OSC Parameters Setup](#OSC-Parameters-Setup) for more detailed instructions.
 - <b>In Game:</b> Did you turn on OSC (Inside the radial menu)?
   
   ![Avatar ID](docs/images/Radial_One.png)
