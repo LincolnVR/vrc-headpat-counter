@@ -17,7 +17,7 @@
 
 1. Add a `VRC Contact Receiver` component to your avatar.
 2. Checkmark `Allow Others` inside the `VRC Contact Receiver`
-3. Set the Parameter you would like to track in the `Parameter` field of `VRC Contact Receiver`. This must be named with a `Track_` before the parameter name in order to work with this script (see example below).
+3. Set the Parameter you would like to track in the `Parameter` field of `VRC Contact Receiver`. This must be named with a `Track_` before the parameter name in order to work with this script (see example below). The parameter must also be a boolean. 
 4. Add which collisions you want to trigger the increment of the parameter inside the `VRC Contact Receiver`.
 
 #### Example of adding Headpats as a Parameter:
@@ -71,8 +71,11 @@ Program not working as expected? Here may be a helpful checklist.
 
 - Does your named parameter(s) start with `Track_`
 - Did you set the parameter(s) in the [Avatars OCS file](#-Parameters-Setup-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`
-- In Game: Did you turn on OSC (Inside the radial menu)?
+- <b>In Game:</b> Did you turn on OSC (Inside the radial menu)?
+  
   ![Avatar ID](docs/images/Radial_One.png)
   ![Avatar ID](docs/images/Radial_Two.png)
-- In Game: Do you have interactions turned on?
+  
+- <b>In Game:</b> Do you have interactions turned on?
+  
   ![Avatar ID](docs/images/Interactions.png)
