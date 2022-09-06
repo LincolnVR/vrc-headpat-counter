@@ -49,7 +49,7 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
-1. [Download Python](https://www.python.org/downloads/)
+1. [Download Python](https://www.python.org/downloads/) click "Add Python to environment variables" in the installer (Under Customize Install -> Advanced Options)
 2. Download this Github Repo as Zip
 3. Extract Zip
 4. Run `launch.bat`
