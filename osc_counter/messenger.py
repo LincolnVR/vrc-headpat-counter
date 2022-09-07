@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 class Messenger:
 
@@ -9,8 +10,9 @@ class Messenger:
 
         message =  ""
         for contact_name in tracker.keys():
-            n_ctx = self.format_number(tracker[contact_name]['current_count'])
-            message += f"{contact_name.capitalize()}: {n_ctx}, "
+            if(self.can_it_populate(tracker[contact_name]['last_activated'])):
+                n_ctx = self.format_number(tracker[contact_name]['current_count'])
+                message += f"{contact_name.capitalize()}: {n_ctx}, "
 
         if len(tracker.keys()) >= 1:
             message = message[:-2]
@@ -19,6 +21,10 @@ class Messenger:
 
     def format_number(self, number: int) -> str:
         return "{:,}".format(number)
+
+    def can_it_populate(self, last_activated) -> bool:
+        delta =  datetime.now().timestamp() - last_activated
+        return delta <= 60
 
     def has_new_content(self, tracker: dict) -> bool:
 
