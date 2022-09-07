@@ -1,4 +1,5 @@
 from datetime import datetime
+from contact import Contact
 import json
 
 class FileManager:
@@ -7,9 +8,8 @@ class FileManager:
     def add_contact(self, contact_name: str) -> None:
         tracker = self.get_tracker()
         tracker[contact_name]['current_count'] = tracker[contact_name]['current_count']+1
-
-        with open("tracker.json", "w") as jsonFile:
-            json.dump(tracker, jsonFile)
+        tracker[contact_name]['last_activated'] = datetime.now().timestamp()
+        self.dump_tracker(tracker)
 
     # Sets the last count to the current count so that it can be updated in the OSC Server
     # The value in last_count is sent as a message to the OSC Server in messenger.py:format_message()
@@ -23,8 +23,7 @@ class FileManager:
                 print(f"Gained {current_count - last_count} {contact_name.capitalize()}!")
                 tracker[contact_name]['last_count'] = current_count
 
-        with open("tracker.json", "w") as jsonFile:
-            json.dump(tracker, jsonFile)
+        self.dump_tracker(tracker)
 
     # The list of keys in the tracker.json file has to be updated while running 
     # because we can't know beforehand what parameters exist for the avatar
@@ -33,16 +32,18 @@ class FileManager:
 
     def inject_new_contact(self, contact_name: str) -> None:
         tracker = self.get_tracker()
-
-        tracker[contact_name] = {'current_count' : 1,'last_count' : 1}
-        with open("tracker.json", "w") as jsonFile:
-            json.dump(tracker, jsonFile)
+        contact = Contact(contact_name)
+        tracker[contact.name] = contact.serializable_data()
+        self.dump_tracker(tracker)
 
     def get_tracker(self) -> dict:
         with open("tracker.json", "r") as jsonFile:
             tracker = json.load(jsonFile)
-
         return tracker
+
+    def dump_tracker(self, tracker) -> None:
+        with open("tracker.json", "w") as jsonFile:
+            json.dump(tracker, jsonFile)
 
 
 
