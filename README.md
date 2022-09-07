@@ -49,11 +49,13 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
-1. [Download Python](https://www.python.org/downloads/) click "Add Python to environment variables" in the installer (Under Customize Install -> Advanced Options)
+1. [Download Python](docs/install_python.md)
+   - I recommend Windows users download from the [Microsoft Store](https://apps.microsoft.com/store/search?hl=en-us&gl=us&publisher=Python%20Software%20Foundation)
+   - Otherwise download from [Python website](https://www.python.org/downloads/) and reference [installing python](docs/install_python.md)
 2. Download this Github Repo as Zip
 3. Extract Zip
 4. Run `launch.bat`
-5. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled. 
+5. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
 
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
 
@@ -62,19 +64,21 @@ This script is not limited to Headpats or just one parameter at a time! You can 
 Each Parameter will need its own `VRC Contact Receiver` and remember to name each parameter starting with `Track_`. So for steppies it is `Track_Steppies`.
 
 > ### Example Setup of Steppies Counter:
+>
 > ![Avatar ID](docs/images/Track_Steppies.png) <br>
 > In this example I have named my parameter `Track_Steppies` and have set the collision to react to `Foot`, `FootR`, and `FootL`
 
 ## <a name="Troubleshooting"></a><b>Troubleshooting</b>
+
 > Program not working as expected? This may be a helpful checklist.
 
 - Does your named parameter(s) start with `Track_`
 - Do you see your custom parameter(s) in the [Avatars OCS file](#OSC-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`. Your avatar may or may not have a json file in this `Avatars` folder Reference [OSC Parameters Setup](#OSC-Parameters-Setup) for more detailed instructions.
 - <b>In Game:</b> Did you turn on OSC (Inside the radial menu)?
-  
+
   ![Avatar ID](docs/images/Radial_One.png)
   ![Avatar ID](docs/images/Radial_Two.png)
-  
+
 - <b>In Game:</b> Do you have interactions turned on?
-  
+
   ![Avatar ID](docs/images/Interactions.png)
