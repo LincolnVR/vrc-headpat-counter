@@ -1,10 +1,12 @@
-import json
+from osc_counter.timechecker import TimeChecker
+from usersettings import UserSettings
 from datetime import datetime
 
 class Messenger:
 
-    def __init__ (self, timer):
-        self.timer = timer
+    def __init__ (self, timer) -> None:
+        self.timer: TimeChecker = timer
+        self.user_settings: UserSettings = UserSettings()
 
     def format_message(self, tracker: dict) -> str:
 
@@ -24,7 +26,7 @@ class Messenger:
 
     def can_it_populate(self, last_activated) -> bool:
         delta =  datetime.now().timestamp() - last_activated
-        return delta <= 60
+        return delta <= self.user_settings.param_persistance
 
     def has_new_content(self, tracker: dict) -> bool:
 
