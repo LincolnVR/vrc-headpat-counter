@@ -1,4 +1,4 @@
-from osc_counter.timechecker import TimeChecker
+from timechecker import TimeChecker
 from usersettings import UserSettings
 from datetime import datetime
 

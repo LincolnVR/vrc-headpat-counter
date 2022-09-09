@@ -1,4 +1,4 @@
-from osc_counter.usersettings import UserSettings
+from usersettings import UserSettings
 from datetime import datetime
 from contact import Contact
 import json
