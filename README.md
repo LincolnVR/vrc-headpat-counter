@@ -50,8 +50,6 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
 1. [Download Python](docs/install_python.md)
-   - I recommend Windows users download from the [Microsoft Store](https://apps.microsoft.com/store/search?hl=en-us&gl=us&publisher=Python%20Software%20Foundation)
-   - Otherwise download from [Python website](https://www.python.org/downloads/) and reference [installing python](docs/install_python.md)
 2. Download this Github Repo as Zip
 3. Extract Zip
 4. Run `launch.bat`
