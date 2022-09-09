@@ -4,19 +4,17 @@ from pythonosc import udp_client
 from filemanager import FileManager
 from timechecker import TimeChecker
 from messenger import Messenger
-import threading, datetime
+import threading
 
 class OSCServer():
     def __init__(self, filemanager, messenger):
         self.dispatcher = Dispatcher()
         self.dispatcher.set_default_handler(self._def_osc_dispatch)
-
-        self.client =  udp_client.SimpleUDPClient("127.0.0.1", 9000)
-
         self.server = BlockingOSCUDPServer(("127.0.0.1", 9001), self.dispatcher)
         self.server_thread = threading.Thread(target=self._process_osc)
-        self.filemanager = filemanager
-        self.messenger = messenger
+        self.client =  udp_client.SimpleUDPClient("127.0.0.1", 9000)
+        self.filemanager: FileManager = filemanager
+        self.messenger: Messenger = messenger
 
     def launch(self) -> None:
         self.server_thread.start()

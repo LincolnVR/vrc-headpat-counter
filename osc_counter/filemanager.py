@@ -1,15 +1,22 @@
+from usersettings import UserSettings
 from datetime import datetime
 from contact import Contact
 import json
 
+
 class FileManager:
+
+    def __init__(self) -> None:
+        self.user_settings = UserSettings()
 
     # Increases the current count of a given contact locally in the JSON file
     def add_contact(self, contact_name: str) -> None:
         tracker = self.get_tracker()
-        tracker[contact_name]['current_count'] = tracker[contact_name]['current_count']+1
-        tracker[contact_name]['last_activated'] = datetime.now().timestamp()
-        self.dump_tracker(tracker)
+        if (self.user_settings.is_past_delay(tracker[contact_name])):
+                tracker[contact_name]['current_count'] += 1
+                tracker[contact_name]['last_activated'] = datetime.now().timestamp()
+                self.dump_tracker(tracker)
+        pass
 
     # Sets the last count to the current count so that it can be updated in the OSC Server
     # The value in last_count is sent as a message to the OSC Server in messenger.py:format_message()
@@ -22,7 +29,6 @@ class FileManager:
             if (current_count > last_count):
                 print(f"Gained {current_count - last_count} {contact_name.capitalize()}!")
                 tracker[contact_name]['last_count'] = current_count
-
         self.dump_tracker(tracker)
 
     # The list of keys in the tracker.json file has to be updated while running 
@@ -43,7 +49,7 @@ class FileManager:
 
     def dump_tracker(self, tracker) -> None:
         with open("tracker.json", "w") as jsonFile:
-            json.dump(tracker, jsonFile)
+            json.dump(tracker, jsonFile, indent=2)
 
 
 
