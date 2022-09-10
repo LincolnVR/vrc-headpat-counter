@@ -1,6 +1,6 @@
 # Dynamic OSC Contact Counter for VRChat
 
-### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [Troubleshooting](#Troubleshooting)
+### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [Troubleshooting](#Troubleshooting) | [<b>Custom Settings</b>](/docs/settings.md)
 
 ## <a name="What-Is-This"></a><b>What is this? </b><br>
 
@@ -55,6 +55,8 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 4. Run `launch.bat`
 5. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
 
+[<b>Customize Your Settings</b>](/docs/settings.md)
+
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
 
 This script is not limited to Headpats or just one parameter at a time! You can have multiple trackers setup at once. Under ["What is this?"](#What-Is-This) I have both `Headpats`, and `Steppies` setup on my avatar. You can easily add many more. The only limitation would come from the character limit inside VRC's chatbox.
@@ -70,7 +72,7 @@ Each Parameter will need its own `VRC Contact Receiver` and remember to name eac
 
 > Program not working as expected? This may be a helpful checklist.
 
-- Restart VRChat if this program launched successfully and shows you receiving increments in the terminal when your interacted with, but the chatbox in game is not displaying the results. 
+- Restart VRChat if this program launched successfully and shows you receiving increments in the terminal when your interacted with, but the chatbox in game is not displaying the results.
 - Does your named parameter(s) start with `Track_`
 - Do you see your custom parameter(s) in the [Avatars OCS file](#OSC-Parameters-Setup) found in a path like `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars`. Your avatar may or may not have a json file in this `Avatars` folder Reference [OSC Parameters Setup](#OSC-Parameters-Setup) for more detailed instructions.
 - <b>In Game:</b> Did you turn on OSC (Inside the radial menu)?
