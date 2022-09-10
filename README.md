@@ -1,6 +1,6 @@
 # Dynamic OSC Contact Counter for VRChat
 
-### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [Troubleshooting](#Troubleshooting)
+### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [Troubleshooting](#Troubleshooting) | [<b>Custom Settings</b>](/docs/settings.md)
 
 ## <a name="What-Is-This"></a><b>What is this? </b><br>
 
@@ -54,6 +54,8 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 3. Extract Zip
 4. Run `launch.bat`
 5. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
+
+[<b>Custom Your Settings</b>](/docs/settings.md)
 
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
 
