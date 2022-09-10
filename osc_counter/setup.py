@@ -10,7 +10,7 @@ def main():
     messenger = Messenger(messenger_timer)
     filemanager = FileManager()
     updater = Updater()
-    updater.auto_update_tracker()
+    updater.check_for_updates()
     osc = OSCServer(filemanager, messenger)
     osc.launch()
 
