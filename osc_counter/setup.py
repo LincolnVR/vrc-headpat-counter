@@ -3,11 +3,14 @@ from oscserver import OSCServer
 from timechecker import TimeChecker
 from filemanager import FileManager
 from messenger import Messenger
+from updater import Updater
 
 def main():
     messenger_timer = TimeChecker(1.5)
     messenger = Messenger(messenger_timer)
     filemanager = FileManager()
+    updater = Updater()
+    updater.auto_update_tracker()
     osc = OSCServer(filemanager, messenger)
     osc.launch()
 
