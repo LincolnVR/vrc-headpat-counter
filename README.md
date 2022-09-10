@@ -1,4 +1,4 @@
-# VRChat Headpat+ Counter
+# Dynamic OSC Contact Counter for VRChat
 
 ### <b>[How To Setup](#How-To-Setup) | [Customize Your Parameters](#Customize-Your-Parameters) | [Troubleshooting](#Troubleshooting)
 
