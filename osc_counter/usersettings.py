@@ -5,7 +5,6 @@ class UserSettings:
 
     def __init__(self) -> None:
         self.config: dict = self.get_config()
-        self.trigger_delay: int = self.config['TriggerDelay']
         self.param_persistance: int = self.force_minimum(self.config['ParamPersistance'], 1)
 
     def force_minimum(self, num_val: int, minimum: int) -> int:
@@ -14,7 +13,7 @@ class UserSettings:
     def is_past_delay(self, contact: dict) -> bool:
         current_time = datetime.now().timestamp()
         delta = current_time - contact['last_activated']
-        return True if delta > self.trigger_delay else False
+        return True if delta > contact['frequency_limit'] else False
          
 
     def get_config(self) -> dict:
