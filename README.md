@@ -52,7 +52,7 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 1. [Download Python](docs/install_python.md)
 2. Download this Github Repo as Zip
 3. Extract Zip
-4. Run `launch.bat`
+4. Run `launch.bat` for Windows or `launch3.bat` for Linux
 5. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
 
 [<b>Customize Your Settings</b>](/docs/settings.md)
