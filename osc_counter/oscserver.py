@@ -41,7 +41,7 @@ class OSCServer():
                 self.filemanager.inject_new_contact(contact_name)
 
     def _process_osc(self) -> None:
-        print("Program Launched! Awaiting interactions:")
+        print("Program Launched! Awaiting interactions (May need to  press Enter Once):")
         self.server.serve_forever()
 
     def message(self, tracker: dict) -> None:
