@@ -1,0 +1,16 @@
+{
+	"source" : "builtin",
+	"applications": [{
+		"app_key": "lincolnvr.VRCContactCounter",
+		"launch_type": "binary",
+		"binary_path_windows": "./VRCContactCounter.exe",
+		"is_dashboard_overlay": true,
+
+		"strings": {
+			"en_us": {
+				"name": "VRCContactCounter",
+				"description": "VRCContactCounter"
+			}
+		}
+	}]
+}
