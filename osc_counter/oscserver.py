@@ -18,6 +18,7 @@ class OSCServer():
 
     def launch(self) -> None:
         self.server_thread.start()
+        print("VRC Contact Counter is Running!") 
 
     def shutdown(self) -> None:
         self.server.shutdown()
@@ -46,12 +47,4 @@ class OSCServer():
 
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])
-
-
-
-
-
-
-
-
-
+        print([self.messenger.format_message(tracker), True])
