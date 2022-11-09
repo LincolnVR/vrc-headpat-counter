@@ -35,8 +35,8 @@
 
 Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded so long as OSC has been enabled in game. The files are named using that avatars ID. If you have enabled OSC in the past and have loaded into the avatar before putting in your custom tracker parameters you will then need to do one of the two options:
 
-<b>Option 1 -></b> Manually add the parameters in the avatars OSC file. (Note: the types must be Bool's)<br>
-<b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
+<b>Option 1 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
+<b>Option 2 -></b> Manually add the parameters in the avatars OSC file. (Note: the types must be Bool's)<br>
 
 <br>
 
@@ -49,6 +49,12 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
+Simple Method
+1. Run VRCContactCounter.exe
+2. (Optional for autostartup with SteamVR) Run manifest.vrmanifest and enable it in SteamVR Startup Overlay Apps
+3. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
+
+Alternative Method
 1. [Download Python](docs/install_python.md)
 2. Download this Github Repo as Zip
 3. Extract Zip
