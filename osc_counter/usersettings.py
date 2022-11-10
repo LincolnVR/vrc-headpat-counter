@@ -9,8 +9,6 @@ class UserSettings:
         self.ListeningPort: int = self.config['ListeningPort']
         self.SendingPort: int = self.config['SendingPort']
         self.IP: str() = self.config['IP']
-        print(f"Listening on port {self.ListeningPort}\n Sending on port {self.SendingPort}")
-        print(f"IP {self.IP}")
 
     def is_past_delay(self, contact: dict) -> bool:
         current_time = datetime.now().timestamp()

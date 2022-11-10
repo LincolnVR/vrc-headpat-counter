@@ -5,6 +5,7 @@ from filemanager import FileManager
 from timechecker import TimeChecker
 from messenger import Messenger
 from usersettings import UserSettings
+import ctypes
 import threading
 
 class OSCServer():
@@ -15,9 +16,11 @@ class OSCServer():
         self.server = BlockingOSCUDPServer((self.user_settings.IP, self.user_settings.ListeningPort), self.dispatcher)
         self.server_thread = threading.Thread(target=self._process_osc)
         self.client =  udp_client.SimpleUDPClient(self.user_settings.IP, self.user_settings.SendingPort)
+        print(f"Listening on port {self.user_settings.ListeningPort}\nSending on port {self.user_settings.SendingPort}")
+        print(f"IP {self.user_settings.IP}")
         self.filemanager: FileManager = filemanager
         self.messenger: Messenger = messenger
-
+        
     def launch(self) -> None:
         self.server_thread.start()
         print("VRC Contact Counter is Running!") 
@@ -25,6 +28,9 @@ class OSCServer():
     def shutdown(self) -> None:
         self.server.shutdown()
         self.server_thread.join()
+        
+    def setConsoleTitle(self): 
+        ctypes.windll.kernel32.SetConsoleTitleW("VRCHeadpatCounter")
 
     # Entry point from OSC Unity receiver for any contact point
     # Remember from the README that args is derived from your avatars OSC JSON file
@@ -49,4 +55,4 @@ class OSCServer():
 
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])
-        print([self.messenger.format_message(tracker), True])
+        print(self.messenger.format_message(tracker))
