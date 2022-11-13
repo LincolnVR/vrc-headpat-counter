@@ -6,6 +6,7 @@ from timechecker import TimeChecker
 from messenger import Messenger
 from usersettings import UserSettings
 import ctypes
+import time
 import threading
 
 class OSCServer():
@@ -16,8 +17,8 @@ class OSCServer():
         self.server = BlockingOSCUDPServer((self.user_settings.IP, self.user_settings.ListeningPort), self.dispatcher)
         self.server_thread = threading.Thread(target=self._process_osc)
         self.client =  udp_client.SimpleUDPClient(self.user_settings.IP, self.user_settings.SendingPort)
-        print(f"Listening on port {self.user_settings.ListeningPort}\nSending on port {self.user_settings.SendingPort}")
-        print(f"IP {self.user_settings.IP}")
+        print(f"IP: {self.user_settings.IP}")
+        print(f"Listening on port: {self.user_settings.ListeningPort}\nSending on port: {self.user_settings.SendingPort}")
         self.filemanager: FileManager = filemanager
         self.messenger: Messenger = messenger
         
@@ -50,8 +51,12 @@ class OSCServer():
                 self.filemanager.inject_new_contact(contact_name)
 
     def _process_osc(self) -> None:
-        print("Program Launched! Awaiting interactions (May need to  press Enter Once):")
-        self.server.serve_forever()
+        try:
+            print("Program Launched! Awaiting interactions (May need to  press Enter Once):")
+            self.server.serve_forever()  
+        except Exception as e: 
+            print(e)
+            time.sleep(5)
 
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])
