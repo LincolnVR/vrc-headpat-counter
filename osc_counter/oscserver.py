@@ -13,15 +13,19 @@ class OSCServer():
     def __init__(self, filemanager, messenger):
         self.user_settings: UserSettings = UserSettings()
         self.dispatcher = Dispatcher()
-        self.dispatcher.set_default_handler(self._def_osc_dispatch)
-        self.server = BlockingOSCUDPServer((self.user_settings.IP, self.user_settings.ListeningPort), self.dispatcher)
-        self.server_thread = threading.Thread(target=self._process_osc)
-        self.client =  udp_client.SimpleUDPClient(self.user_settings.IP, self.user_settings.SendingPort)
-        print(f"IP: {self.user_settings.IP}")
-        print(f"Listening on port: {self.user_settings.ListeningPort}\nSending on port: {self.user_settings.SendingPort}")
         self.filemanager: FileManager = filemanager
         self.messenger: Messenger = messenger
-        
+        self.dispatcher.set_default_handler(self._def_osc_dispatch)
+        try:
+            self.server = BlockingOSCUDPServer((self.user_settings.IP, self.user_settings.ListeningPort), self.dispatcher)
+            self.server_thread = threading.Thread(target=self._process_osc)
+            self.client =  udp_client.SimpleUDPClient(self.user_settings.IP, self.user_settings.SendingPort)
+        except Exception as e: 
+            print(e)
+            time.sleep(5)
+        print(f"IP: {self.user_settings.IP}")
+        print(f"Listening on port: {self.user_settings.ListeningPort}\nSending on port: {self.user_settings.SendingPort}")
+  
     def launch(self) -> None:
         self.server_thread.start()
         print("VRC Contact Counter is Running!") 
@@ -31,7 +35,7 @@ class OSCServer():
         self.server_thread.join()
         
     def setConsoleTitle(self): 
-        ctypes.windll.kernel32.SetConsoleTitleW("VRCHeadpatCounter")
+        ctypes.windll.kernel32.SetConsoleTitleW("VRCContactCounter")
 
     # Entry point from OSC Unity receiver for any contact point
     # Remember from the README that args is derived from your avatars OSC JSON file
@@ -51,12 +55,8 @@ class OSCServer():
                 self.filemanager.inject_new_contact(contact_name)
 
     def _process_osc(self) -> None:
-        try:
-            print("Program Launched! Awaiting interactions (May need to  press Enter Once):")
-            self.server.serve_forever()  
-        except Exception as e: 
-            print(e)
-            time.sleep(5)
+        print("Program Launched! Awaiting interactions (May need to  press Enter Once):")
+        self.server.serve_forever()  
 
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])

@@ -13,6 +13,7 @@ def main():
     updater.check_for_updates()
     osc = OSCServer(filemanager, messenger)
     osc.launch()
+    osc.setConsoleTitle()
 
 if __name__ == "__main__":
     main()
