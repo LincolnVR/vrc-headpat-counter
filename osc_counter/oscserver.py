@@ -8,6 +8,7 @@ from usersettings import UserSettings
 import ctypes
 import time
 import threading
+import datetime
 
 class OSCServer():
     def __init__(self, filemanager, messenger):
@@ -60,4 +61,8 @@ class OSCServer():
 
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])
-        print(self.messenger.format_message(tracker))
+        now = datetime.datetime.now()
+        if self.user_settings.log:
+            print(now.strftime('%m/%d, %H:%M:%S'), self.messenger.format_message(tracker))
+        else:
+            print(now.strftime('%m/%d, %H:%M:%S'), self.messenger.format_message(tracker), end="\r")
