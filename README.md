@@ -33,10 +33,11 @@
 
 > <b> :warning: You can skip this step if you have never enabled OSC in game before as the Avatar folder will be empty and your OSC Avatar JSON files will be auto generated after you enable OSC in game. </b>
 
-Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded so long as OSC has been enabled in game. The files are named using that avatars ID. If you have enabled OSC in the past and have loaded into the avatar before putting in your custom tracker parameters you will then need to do one of the two options:
+Your avatar will need your new parameters put into it's VRC OSC file. The file can be found in a path such as `C:\Users\your_user_name\AppData\LocalLow\VRChat\VRChat\OSC\your_user_id\Avatars` Each avatar has automatically created files for OSC parameters when it is first loaded so long as OSC has been enabled in game. The files are named using that avatars ID. If you have enabled OSC in the past and have loaded into the avatar before putting in your custom tracker parameters you will then need to do one of the three options:
 
-<b>Option 1 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
-<b>Option 2 -></b> Manually add the parameters in the avatars OSC file. (Note: the types must be Bool's)<br>
+<b>Option 1 -></b> Reset Config in VRChat OSC radial menu (Might not work)
+<b>Option 2 -></b> Delete the OSC file associated with that avatar so that it will automatically generate a new one when you next load your avatar in game.
+<b>Option 3 -></b> Manually add the parameters in the avatars OSC file. (Note: the types must be Bool's)<br>
 
 <br>
 
@@ -50,7 +51,7 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
 Simple Method
-1. Run VRCContactCounter.exe
+1. Run VRCHeadpatCounter.exe
 2. (Optional for autostartup with SteamVR) Run manifest.vrmanifest and enable it in SteamVR Startup Overlay Apps
 3. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
 
