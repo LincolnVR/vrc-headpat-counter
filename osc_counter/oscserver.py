@@ -9,6 +9,7 @@ import ctypes
 import time
 import threading
 import datetime
+import logging
 
 class OSCServer():
     def __init__(self, filemanager, messenger):
@@ -17,12 +18,14 @@ class OSCServer():
         self.filemanager: FileManager = filemanager
         self.messenger: Messenger = messenger
         self.dispatcher.set_default_handler(self._def_osc_dispatch)
+        logging.basicConfig(filename='output.txt', level=logging.INFO, format='')
         try:
             self.server = BlockingOSCUDPServer((self.user_settings.IP, self.user_settings.ListeningPort), self.dispatcher)
             self.server_thread = threading.Thread(target=self._process_osc)
             self.client =  udp_client.SimpleUDPClient(self.user_settings.IP, self.user_settings.SendingPort)
         except Exception as e: 
             print(e)
+            logging.error(e)
             time.sleep(5)
         print(f"IP: {self.user_settings.IP}")
         print(f"Listening on port: {self.user_settings.ListeningPort}\nSending on port: {self.user_settings.SendingPort}")
@@ -36,14 +39,14 @@ class OSCServer():
         self.server_thread.join()
         
     def setConsoleTitle(self): 
-        ctypes.windll.kernel32.SetConsoleTitleW("VRCContactCounter")
+        ctypes.windll.kernel32.SetConsoleTitleW("VRCHeadpatCounter")
 
     # Entry point from OSC Unity receiver for any contact point
     # Remember from the README that args is derived from your avatars OSC JSON file
     # Per the README these address can only be boolean
     def _def_osc_dispatch(self, address: str, *args) -> None:
         if (self.messenger.timer.enough_time_passed() and \
-                self.messenger.has_new_content(tracker := self.filemanager.get_tracker())):
+            self.messenger.has_new_content(tracker := self.filemanager.get_tracker())):
             self.filemanager.update_tracker()
             self.message(tracker)
             self.messenger.timer.update_last_change()
@@ -62,7 +65,9 @@ class OSCServer():
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])
         now = datetime.datetime.now()
+        data = now.strftime('%m/%d %H:%M:%S') + ", " + self.messenger.format_message(tracker)
         if self.user_settings.log:
-            print(now.strftime('%m/%d, %H:%M:%S'), self.messenger.format_message(tracker))
+            logging.info(data)
+            print(data)
         else:
-            print(now.strftime('%m/%d, %H:%M:%S'), self.messenger.format_message(tracker), end="\r")
+            print(data, end="\r")

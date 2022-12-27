@@ -8,8 +8,8 @@ class UserSettings:
         self.param_persistance: int = self.config['ParamPersistance']
         self.ListeningPort: int = self.config['ListeningPort']
         self.SendingPort: int = self.config['SendingPort']
-        self.IP: str() = self.config['IP']
-        self.log: bool() = self.config['Log']
+        self.IP: str = self.config['IP']
+        self.log: bool = self.config['Log']
 
     def is_past_delay(self, contact: dict) -> bool:
         current_time = datetime.now().timestamp()
