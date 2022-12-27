@@ -51,7 +51,7 @@ Your avatar will need your new parameters put into it's VRC OSC file. The file c
 ## <a name="Launching-Program"></a><b>Launching This Program</b>
 
 Simple Method
-1. Run VRCContactCounter.exe
+1. Run VRCHeadpatCounter.exe
 2. (Optional for autostartup with SteamVR) Run manifest.vrmanifest and enable it in SteamVR Startup Overlay Apps
 3. In game ensure that OSC has been toggled on (inside your radial menu), and that you have Avatar interactions enabled.
 
