@@ -64,6 +64,16 @@ Alternative Method
 
 [<b>Customize Your Settings</b>](/docs/settings.md)
 
+## <a name="Config-Settings"></a><b>Config Settings</b>
+
+| Value                 | Info                                                           | Default  |
+|:--------------------- | -------------------------------------------------------------- |:--------:|
+| ParamPersistance      | Determines how long interactions will continue to populate in the chatbox since the last time it was triggered.| 60        |
+| ListeningPort         | Port to listen for OSC data on                                 | 9001      |
+| Sending port          | Port to send OSC data to                                       | 9000      |
+| IP                    | Address to send OSC data to                                    | 127.0.0.1 |
+| Log                   | Tracks the contacts in the output.txt file and exe             | false     |
+
 ## <a name="Customize-Your-Parameters"></a><b>Customize Your Parameters</b>
 
 This script is not limited to Headpats or just one parameter at a time! You can have multiple trackers setup at once. Under ["What is this?"](#What-Is-This) I have both `Headpats`, and `Steppies` setup on my avatar. You can easily add many more. The only limitation would come from the character limit inside VRC's chatbox.
