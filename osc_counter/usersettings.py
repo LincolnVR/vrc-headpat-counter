@@ -5,10 +5,11 @@ class UserSettings:
 
     def __init__(self) -> None:
         self.config: dict = self.get_config()
-        self.param_persistance: int = self.force_minimum(self.config['ParamPersistance'], 1)
-
-    def force_minimum(self, num_val: int, minimum: int) -> int:
-        return minimum if num_val < minimum else num_val
+        self.param_persistance: int = self.config['ParamPersistance']
+        self.ListeningPort: int = self.config['ListeningPort']
+        self.SendingPort: int = self.config['SendingPort']
+        self.IP: str = self.config['IP']
+        self.log: bool = self.config['Log']
 
     def is_past_delay(self, contact: dict) -> bool:
         current_time = datetime.now().timestamp()

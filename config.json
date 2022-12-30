@@ -1,3 +1,7 @@
 {
-  "ParamPersistance": 60
+	"ParamPersistance": 60,
+	"ListeningPort" : 9001,
+	"SendingPort" : 9000,
+	"IP": "127.0.0.1",
+	"Log": false
 }

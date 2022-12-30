@@ -27,8 +27,9 @@ class FileManager:
             current_count =  tracker[contact_name]['current_count']
             last_count = tracker[contact_name]['last_count']
             if (current_count > last_count):
-                print(f"Gained {current_count - last_count} {contact_name.capitalize()}!")
-                tracker[contact_name]['last_count'] = current_count
+                if self.user_settings.log:
+                    print(f"Gained {current_count - last_count} {contact_name.capitalize()}!")
+                    tracker[contact_name]['last_count'] = current_count
         self.dump_tracker(tracker)
 
     # The list of keys in the tracker.json file has to be updated while running 

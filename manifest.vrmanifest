@@ -1,0 +1,16 @@
+{
+	"source" : "builtin",
+	"applications": [{
+		"app_key": "lincolnvr.VRCHeadpatCounter",
+		"launch_type": "binary",
+		"binary_path_windows": "./VRCHeadpatCounter.exe",
+		"is_dashboard_overlay": true,
+
+		"strings": {
+			"en_us": {
+				"name": "VRCHeadpatCounter",
+				"description": "VRCHeadpatCounter"
+			}
+		}
+	}]
+}

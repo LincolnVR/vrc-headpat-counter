@@ -4,24 +4,42 @@ from pythonosc import udp_client
 from filemanager import FileManager
 from timechecker import TimeChecker
 from messenger import Messenger
+from usersettings import UserSettings
+import ctypes
+import time
 import threading
+import datetime
+import logging
 
 class OSCServer():
     def __init__(self, filemanager, messenger):
+        self.user_settings: UserSettings = UserSettings()
         self.dispatcher = Dispatcher()
-        self.dispatcher.set_default_handler(self._def_osc_dispatch)
-        self.server = BlockingOSCUDPServer(("127.0.0.1", 9001), self.dispatcher)
-        self.server_thread = threading.Thread(target=self._process_osc)
-        self.client =  udp_client.SimpleUDPClient("127.0.0.1", 9000)
         self.filemanager: FileManager = filemanager
         self.messenger: Messenger = messenger
-
+        self.dispatcher.set_default_handler(self._def_osc_dispatch)
+        logging.basicConfig(filename='output.txt', level=logging.INFO, format='')
+        try:
+            self.server = BlockingOSCUDPServer((self.user_settings.IP, self.user_settings.ListeningPort), self.dispatcher)
+            self.server_thread = threading.Thread(target=self._process_osc)
+            self.client =  udp_client.SimpleUDPClient(self.user_settings.IP, self.user_settings.SendingPort)
+        except Exception as e: 
+            print(e)
+            logging.error(e)
+            time.sleep(5)
+        print(f"IP: {self.user_settings.IP}")
+        print(f"Listening on port: {self.user_settings.ListeningPort}\nSending on port: {self.user_settings.SendingPort}")
+  
     def launch(self) -> None:
         self.server_thread.start()
+        print("VRC Contact Counter is Running!") 
 
     def shutdown(self) -> None:
         self.server.shutdown()
         self.server_thread.join()
+        
+    def setConsoleTitle(self): 
+        ctypes.windll.kernel32.SetConsoleTitleW("VRCHeadpatCounter")
 
     # Entry point from OSC Unity receiver for any contact point
     # Remember from the README that args is derived from your avatars OSC JSON file
@@ -42,16 +60,14 @@ class OSCServer():
 
     def _process_osc(self) -> None:
         print("Program Launched! Awaiting interactions (May need to  press Enter Once):")
-        self.server.serve_forever()
+        self.server.serve_forever()  
 
     def message(self, tracker: dict) -> None:
         self.client.send_message("/chatbox/input", [self.messenger.format_message(tracker), True])
-
-
-
-
-
-
-
-
-
+        now = datetime.datetime.now()
+        data = now.strftime('%m/%d %H:%M:%S') + ", " + self.messenger.format_message(tracker)
+        if self.user_settings.log:
+            logging.info(data)
+            print(data)
+        else:
+            print(data, end="\r")
