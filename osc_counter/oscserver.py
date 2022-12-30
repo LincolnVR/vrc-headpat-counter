@@ -46,7 +46,7 @@ class OSCServer():
     # Per the README these address can only be boolean
     def _def_osc_dispatch(self, address: str, *args) -> None:
         if (self.messenger.timer.enough_time_passed() and \
-            self.messenger.has_new_content(tracker := self.filemanager.get_tracker())):
+                self.messenger.has_new_content(tracker := self.filemanager.get_tracker())):
             self.filemanager.update_tracker()
             self.message(tracker)
             self.messenger.timer.update_last_change()
